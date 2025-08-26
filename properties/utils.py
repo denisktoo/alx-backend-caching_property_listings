@@ -1,7 +1,7 @@
 from django.core.cache import cache
 from .models import Property
 
-def getallproperties():
+def get_all_properties():
     queryset = cache.get('all_properties')
     if not queryset:
         queryset = Property.objects.all()
