@@ -5,5 +5,12 @@ from django.views.decorators.cache import cache_page
 
 @cache_page(60 * 15)
 def property_list(request):
-    properties = Property.objects.all().values('id', 'title', 'description', 'price', 'location', 'created_at')
-    return JsonResponse(list(properties), safe=False)
+    properties = Property.objects.all().values(
+        'id', 'title', 'description', 'price', 'location', 'created_at'
+    )
+
+    response_data = {
+        'data': list(properties)
+    }
+
+    return JsonResponse(response_data)
