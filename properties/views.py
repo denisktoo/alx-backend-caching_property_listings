@@ -9,8 +9,4 @@ def property_list(request):
         'id', 'title', 'description', 'price', 'location', 'created_at'
     )
 
-    response_data = {
-        'data': list(properties)
-    }
-
-    return JsonResponse(response_data)
+    return JsonResponse({'data': list(properties)})
