@@ -6,5 +6,5 @@ from .utils import getallproperties
 
 @cache_page(60 * 15)
 def property_list(request):
-    properties = getallproperties()
-    return JsonResponse({'data': list(properties)})
+    properties_queryset = getallproperties()
+    return JsonResponse({'data': list(properties_queryset)})
